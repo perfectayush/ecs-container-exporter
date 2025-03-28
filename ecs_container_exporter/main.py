@@ -39,14 +39,14 @@ class ECSContainerExporter(object):
     # stats are collected and aggregated across this interval
     # default to 55s for scrape_interval and scrape_timeout of 1m
     # should be set to 60 when using statsd, which doesn't have this issue
-    interval = 55
+    interval = 60
 
     def __init__(
         self,
         metadata_url=None,
         include_containers=None,
         exclude_containers=None,
-        interval=55,
+        interval=60,
         http_timeout=60,
     ):
         self.task_metadata_url = urljoin(metadata_url + "/", "task")
