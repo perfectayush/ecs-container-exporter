@@ -37,7 +37,7 @@ class ECSContainerExporter(object):
     # the Task level metrics are included by default
     include_container_ids = [utils.TASK_CONTAINER_NAME_TAG]
     # stats are collected and aggregated across this interval
-    # default to 55s for scrape_interval and scrape_timeout of 1m
+    # default to 60s for scrape_interval and scrape_timeout of 1m
     # should be set to 60 when using statsd, which doesn't have this issue
     interval = 60
 
@@ -398,7 +398,7 @@ def shutdown(sig_number, frame):
     "--interval",
     envvar="INTERVAL",
     type=int,
-    default=55,
+    default=60,
     help="Stats collection and aggregation interval in seconds (specifically for CPU stats)",
 )
 @click.option(
@@ -416,7 +416,7 @@ def main(
     statsd_host="localhost",
     include=None,
     exclude=None,
-    interval=55,
+    interval=60,
     log_level="INFO",
 ):
     if not metadata_url:
